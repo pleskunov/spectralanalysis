@@ -8,9 +8,13 @@ add_library(oscillators)
 
 target_sources(oscillators
   PUBLIC
+    src/oscillators/constants.hpp
+    src/oscillators/types.hpp
     src/oscillators/genosc.hpp
+    src/oscillators/drude.hpp
   PRIVATE
     src/oscillators/genosc.cpp
+    src/oscillators/drude.cpp
   )
 
 target_include_directories(oscillators
