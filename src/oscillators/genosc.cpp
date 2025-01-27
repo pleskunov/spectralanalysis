@@ -1,5 +1,4 @@
 #include "genosc.hpp"
-#include "types.hpp"
 
 std::vector<std::complex<double>> Oscillator::compute_permittivity(const std::vector<double>& photonEnergy) const {
   throw std::logic_error("This method should be implemented by subclasses");

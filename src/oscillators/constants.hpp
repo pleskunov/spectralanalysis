@@ -2,6 +2,7 @@
 #define CONSTANTS_HPP
 
 #include <complex>
+
 namespace Constants {
     // Reduced Planck's constant, eV·s
     constexpr double HBAR = 6.582119569e-16;

@@ -3,7 +3,6 @@
 
 #include "genosc.hpp"
 #include "types.hpp"
-#include <string>
 
 class Parameters {
   public:
