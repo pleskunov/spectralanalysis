@@ -1,6 +1,7 @@
 #include "genosc.hpp"
+#include "types.hpp"
 
-std::vector<std::complex<double>> Oscillator::compute_permittivity(const std::vector<double>& energy) const {
+std::vector<std::complex<double>> Oscillator::compute_permittivity(const std::vector<double>& photonEnergy) const {
   throw std::logic_error("This method should be implemented by subclasses");
 }
 
@@ -16,10 +17,10 @@ void Oscillator::setMaterial(const std::string& mat) {
   material = mat;
 }
 
-const std::string& Oscillator::getType() const {
+OscillatorTypes Oscillator::getType() const {
   return type;
 }
 
-void Oscillator::setType(const std::string& oscillatorType) {
+void Oscillator::setType(const OscillatorTypes oscillatorType) {
   type = oscillatorType;
 }
