@@ -4,6 +4,20 @@ set(CMAKE_BUILD_TYPE Debug)
 
 project(spectralanalysis VERSION 1.0 DESCRIPTION "Spectral data analyzer and optical modelling.")
 
+add_library(moremath)
+
+target_sources(moremath
+  PUBLIC
+    src/moremath/dawson.hpp
+  PRIVATE
+    src/moremath/dawson.cpp
+)
+
+target_include_directories(moremath
+  PUBLIC
+    src/moremath
+)
+
 add_library(oscillators)
 
 target_sources(oscillators
@@ -21,6 +35,8 @@ target_include_directories(oscillators
   PUBLIC
     src/oscillators
   )
+
+target_link_libraries(oscillators PRIVATE moremath)
 
 add_executable(spectralanalysis)
 
