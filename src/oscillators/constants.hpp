@@ -30,6 +30,9 @@ namespace Constants {
 
     // Complex imag unit
     constexpr std::complex<double> ImU = std::complex<double>(0.0, 1.0);
+
+    // Square root of natural logarithm of 2.0
+    constexpr double M_SQRT_LN2 = 0.8325546111576976;
 }
 
 #endif // CONSTANTS_HPP
