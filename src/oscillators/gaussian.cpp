@@ -4,17 +4,12 @@
 
 #include <cmath>
 
-std::vector<std::complex<double>> GaussianOscillator::compute_permittivity(const std::vector<double>& photonEnergies) const {
-
-  std::vector<std::complex<double>> epsilon;
-  epsilon.reserve(photonEnergies.size());
-
-  for (const auto& energy : photonEnergies) {
+std::complex<double> GaussianOscillator::compute_epsilon_at(double photonEnergy) const {
 
     double sigma_n = parameters.Br / (2.0 * Constants::M_SQRT_LN2);
 
-    double z_plus = (energy + parameters.En) / sigma_n;
-    double z_minus = (energy - parameters.En) / sigma_n;
+    double z_plus = (photonEnergy + parameters.En) / sigma_n;
+    double z_minus = (photonEnergy - parameters.En) / sigma_n;
 
     double z_plus_s = z_plus * z_plus;
     double z_minus_s = z_minus * z_minus;
@@ -28,8 +23,5 @@ std::vector<std::complex<double>> GaussianOscillator::compute_permittivity(const
     double eps2 = exp(-z_minus_s) - exp(-z_plus_s);
 
     // Complex dielectric function: note, we inverse e1 to mimick the CompleteEASE
-    epsilon.push_back(parameters.Amp * (-eps1 + eps2 * Constants::ImU));
-  }
-
-  return epsilon;
+    return parameters.Amp * (-eps1 + eps2 * Constants::ImU);
 };

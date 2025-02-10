@@ -22,7 +22,7 @@ class GaussianOscillator : public Oscillator {
 
   GaussianOscillator(const std::string& name, double Amp, double En, double Br) : Oscillator(name, GAUSSIAN), parameters(Amp, En, Br) {}
 
-  std::vector<std::complex<double>> compute_permittivity(const std::vector<double>& photonEnergies) const override;
+  std::complex<double>  compute_epsilon_at(double photonEnergy) const override;
 };
 
 #endif // GAUSSIAN_HPP

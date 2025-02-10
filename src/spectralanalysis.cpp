@@ -8,9 +8,9 @@ int main() {
 
     std::vector<double> energies = {1.0, 2.0, 3.0};
 
-    std::vector<std::complex<double>> epsilon = drude.compute_permittivity(energies);
+    int status = drude.compute_permittivity(energies);
 
-    for (const auto& eps : epsilon) {
+    for (const auto& eps : drude.getPermittivity()) {
       std::cout << eps << std::endl;
     }
 

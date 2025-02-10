@@ -1,5 +1,5 @@
-#ifndef TYPES_HPP
-#define TYPES_HPP
+#ifndef OSC_TYPES_HPP
+#define OSC_TYPES_HPP
 
 enum OscillatorTypes {
   GENERIC,
@@ -10,4 +10,4 @@ enum OscillatorTypes {
   GAUSSIAN
 };
 
-#endif // TYPES_HPP
+#endif // OSC_TYPES_HPP

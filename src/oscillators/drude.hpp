@@ -26,7 +26,7 @@ class DrudeOscillatorRT : public Oscillator {
 
     DrudeOscillatorRT(const std::string& name, double rho, double tau) : Oscillator(name, DRUDE_RT), parameters(rho, tau) {}
 
-    std::vector<std::complex<double>> compute_permittivity(const std::vector<double>& photonEnergies) const override;
+    std::complex<double> compute_epsilon_at(double photonEnergy) const override;
 };
 
 class DrudeOscillatorNMu : public Oscillator {
@@ -35,7 +35,7 @@ class DrudeOscillatorNMu : public Oscillator {
 
     DrudeOscillatorNMu(const std::string& name, double N, double mu, double m) : Oscillator(name, DRUDE_NMU), parameters(0.0, 0.0, N, mu, m) {}
 
-    std::vector<std::complex<double>> compute_permittivity(const std::vector<double>& photonEnergies) const override;
+    std::complex<double> compute_epsilon_at(double photonEnergy) const override;
 };
 
 #endif // DRUDE_HPP

@@ -40,7 +40,7 @@ class LorentzOscillator : public Oscillator {
 
     LorentzOscillator(const std::string& name, double Amp, double En, double Br) : Oscillator(name, LORENTZ), parameters(Amp, 0.0, En, Br) {}
 
-    std::vector<std::complex<double>> compute_permittivity(const std::vector<double>& photonEnergies) const override;
+    std::complex<double> compute_epsilon_at(double photonEnergy) const override;
 };
 
 class LorentzImAmpOscillator : public Oscillator {
@@ -49,7 +49,7 @@ class LorentzImAmpOscillator : public Oscillator {
 
     LorentzImAmpOscillator(const std::string& name, double Amp, double iAmp, double En, double Br) : Oscillator(name, LORENTZ_IMAMP), parameters(Amp, iAmp, En, Br) {}
 
-    std::vector<std::complex<double>> compute_permittivity(const std::vector<double>& photonEnergies) const override;
+    std::complex<double> compute_epsilon_at(double photonEnergy) const override;
 };
 
 #endif // !LORENTZ_HPP
