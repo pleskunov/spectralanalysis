@@ -1,6 +1,6 @@
 #include "gaussian.hpp"
 #include "constants.hpp"
-#include "../moremath/dawson.hpp"
+#include "../moremath/Dawson.hpp"
 
 #include <cmath>
 
