@@ -8,9 +8,14 @@ add_library(moremath)
 
 target_sources(moremath
   PUBLIC
-    src/moremath/dawson.hpp
+    src/moremath/Constants.hpp
+    src/moremath/Chebyshev.hpp
+    src/moremath/Faddeeva.hpp
+    src/moremath/Dawson.hpp
   PRIVATE
-    src/moremath/dawson.cpp
+    src/moremath/Chebyshev.cpp
+    src/moremath/Faddeeva.cpp
+    src/moremath/Dawson.cpp
 )
 
 target_include_directories(moremath
