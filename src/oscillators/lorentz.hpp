@@ -18,22 +18,6 @@ class Parameters {
       Br(Br) {}
 };
 
-/**
- * @class LorentzOscillator
- * @brief The classic Lorentz oscillator model.
- *
- * This class models the classic Lorentz oscillator, which is commonly used in 
- * optical modeling to describe resonances in the dielectric function.
- *
- * @details
- * The model is defined by the following parameters:
- * - **Amp**: The unitless amplitude of the oscillator. It approximately equals e^2 at its peak value.
- * - **Br**: The broadening of the oscillator in eV. It approximates the full width at half-maximum (FWHM).
- * - **En**: The center energy (resonance energy) of the oscillator in eV.
- *
- * **Note:**
- * - The maximum position shifts to lower energies compared to the center energy @c En as broadening @c Br increases.
- */
 class LorentzOscillator : public Oscillator {
   public:
     Parameters parameters;

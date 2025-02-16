@@ -5,7 +5,6 @@ std::complex<double> Oscillator::compute_epsilon_at(double photonEnergy) const {
 }
 
 int Oscillator::compute_permittivity(const std::vector<double>& photonEnergies) {
-
   if (photonEnergies.empty()) {
     return 1;
   };
@@ -13,19 +12,18 @@ int Oscillator::compute_permittivity(const std::vector<double>& photonEnergies) 
   size_t e_size = photonEnergies.size();
 
   permittivity.resize(e_size);
-
-  for (size_t i = 0; i < e_size; ++i) {
+  for (size_t i = 0; i < e_size; i++) {
     permittivity[i] = compute_epsilon_at(photonEnergies[i]);
   }
 
   return 0;
 }
 
-const std::string& Oscillator::getName() const {
+const std::string& Oscillator::getName(void) const {
   return name;
 }
 
-OscillatorTypes Oscillator::getType() const {
+OscillatorTypes Oscillator::getType(void) const {
   return type;
 }
 
@@ -33,6 +31,6 @@ void Oscillator::setType(const OscillatorTypes oscillatorType) {
   type = oscillatorType;
 }
 
-std::vector<std::complex<double>> Oscillator::getPermittivity() const {
+std::vector<std::complex<double>> Oscillator::getPermittivity(void) const {
   return permittivity;
 }

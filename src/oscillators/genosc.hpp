@@ -23,10 +23,10 @@ class Oscillator {
     // Interface
     virtual std::complex<double>      compute_epsilon_at(double photonEnergy) const;
     int                               compute_permittivity(const std::vector<double>& photonEnergies);
-    const std::string&                getName() const;
-    OscillatorTypes                   getType() const;
+    const std::string&                getName(void) const;
+    OscillatorTypes                   getType(void) const;
     void                              setType(const OscillatorTypes oscillatorType);
-    std::vector<std::complex<double>> getPermittivity() const;
+    std::vector<std::complex<double>> getPermittivity(void) const;
 };
 
 #endif // GENOSC_HPP
