@@ -3,6 +3,8 @@
 
 enum OscillatorTypes {
   GENERIC,
+  IR_POLE,
+  UV_POLE,
   DRUDE_RT,
   DRUDE_NMU,
   LORENTZ,
