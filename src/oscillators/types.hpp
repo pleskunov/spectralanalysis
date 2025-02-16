@@ -7,7 +7,9 @@ enum OscillatorTypes {
   DRUDE_NMU,
   LORENTZ,
   LORENTZ_IMAMP,
-  GAUSSIAN
+  GAUSSIAN,
+  HARMONIC,
+  HARMONIC_IMAMP
 };
 
 #endif // OSC_TYPES_HPP
