@@ -1,28 +1,92 @@
 #include <iostream>
 
+#include "oscillators/lorentz.hpp"
+#include "oscillators/harmonic.hpp"
 #include "oscillators/drude.hpp"
-#include "moremath/Dawson.hpp"
-#include <iomanip>
+#include "oscillators/gaussian.hpp"
+
+//#include <iomanip>
 
 int main() {
-    DrudeOscillatorRT drude("Drude Oscillator", 1.0, 2.0);
-    Oscillator genericOscillator("Generic Oscillator", GENERIC);
 
-    std::vector<double> energies = {1.0, 2.0, 3.0};
+  Drude::OscillatorRT drudeRT("DrudeRT", 0.001, 5.0);
+  Drude::OscillatorNMu drudeNMu("DrudeNmu", 1.0e20, 50.0, 0.260);
 
-    int status = drude.compute_permittivity(energies);
+  Lorentz::OscillatorAmp lorentz("Lorentz", 10.0, 3.0, 0.10);
+  Lorentz::OscillatorImAmp lorentzIm("LorentzImAmp", 10.0, 5.0, 3.0, 0.10);
 
-    for (const auto& eps : drude.getPermittivity()) {
-      std::cout << eps << std::endl;
-    }
+  Harmonic::OscillatorAmp harmonic("Harmonic", 10.0, 3.0, 0.10);
+  Harmonic::OscillatorImAmp harmonicIm("HarmonicIm", 10.0, 5.0, 3.0, 0.10);
 
-    double x1 = 1.223000000000000;
-    double x2 = dawson(x1);
+  Gaussian::OscillatorAmp gauss("Gaussian", 10.0, 3.0, 0.10);
 
-    std::cout << "Dawson integral of " << x1 << " is " << std::fixed << std::setprecision(16) << x2 << std::endl;
+  std::vector<double> energies = {4.0, 3.02439, 2.0, 1.24};
 
-    std::cout << "Drude type: " << drude.getType() << std::endl;
-    std::cout << "Generic type: " << genericOscillator.getType() << std::endl;
+  drudeRT.compute_permittivity(energies);
+  drudeNMu.compute_permittivity(energies);
+  lorentz.compute_permittivity(energies);
+  lorentzIm.compute_permittivity(energies);
+  harmonic.compute_permittivity(energies);
+  harmonicIm.compute_permittivity(energies);
 
-    return 0;
+  gauss.compute_permittivity(energies);
+
+  int i = 0;
+  std::cout << "Energy (ev) e1 e2" << std::endl;
+  for (const auto& eps : drudeRT.getPermittivity()) {
+    std::cout << energies[i] << " " << eps << std::endl;
+    i++;
+  }
+
+  std::cout << std::endl;
+  i = 0;
+  std::cout << "Energy (ev) e1 e2" << std::endl;
+  for (const auto& eps : drudeNMu.getPermittivity()) {
+    std::cout << energies[i] << " " << eps << std::endl;
+    i++;
+  }
+
+  std::cout << std::endl;
+  i = 0;
+  std::cout << "Energy (ev) e1 e2" << std::endl;
+  for (const auto& eps : lorentz.getPermittivity()) {
+    std::cout << energies[i] << " " << eps << std::endl;
+    i++;
+  }
+
+  std::cout << std::endl;
+  i = 0;
+  std::cout << "Energy (ev) e1 e2" << std::endl;
+  for (const auto& eps : lorentzIm.getPermittivity()) {
+    std::cout << energies[i] << " " << eps << std::endl;
+    i++;
+  }
+
+  std::cout << std::endl;
+  i = 0;
+  std::cout << "Energy (ev) e1 e2" << std::endl;
+  for (const auto& eps : harmonic.getPermittivity()) {
+    std::cout << energies[i] << " " << eps << std::endl;
+    i++;
+  }
+
+  // TODO: check
+  //std::cout << std::endl;
+  //i = 0;
+  //std::cout << "Energy (ev) e1 e2" << std::endl;
+  //for (const auto& eps : harmonicIm.getPermittivity()) {
+  //  std::cout << energies[i] << " " << eps << std::endl;
+  //  i++;
+  //}
+
+  //std::cout << std::endl;
+  //i = 0;
+  //std::cout << "Energy (ev) e1 e2" << std::endl;
+  //for (const auto& eps : gauss.getPermittivity()) {
+  //  std::cout << energies[i] << " " << eps << std::endl;
+  //  i++;
+  //}
+  //std::cout << "Drude type: " << drudeRT.getType() << std::endl;
+
+  return 0;
 }

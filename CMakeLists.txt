@@ -31,9 +31,16 @@ target_sources(oscillators
     src/oscillators/types.hpp
     src/oscillators/genosc.hpp
     src/oscillators/drude.hpp
+    src/oscillators/lorentz.hpp
+    src/oscillators/harmonic.hpp
+    src/oscillators/gaussian.hpp
+
   PRIVATE
     src/oscillators/genosc.cpp
     src/oscillators/drude.cpp
+    src/oscillators/lorentz.cpp
+    src/oscillators/harmonic.cpp
+    src/oscillators/gaussian.cpp
   )
 
 target_include_directories(oscillators
